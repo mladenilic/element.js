@@ -1,4 +1,4 @@
-export default ({ tagName = '', content = [], attributes = {}, events = {} }) => {
+export default ({ tagName = '', content = [], attributes = {}, events = {} } = {}) => {
   let element = document.createElement(tagName || 'div');
 
   Object.keys(attributes).forEach((key) => element.setAttribute(key, attributes[key]));

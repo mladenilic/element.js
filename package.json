@@ -4,8 +4,7 @@
   "description": "Simple js library for generating large number of html elements",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack-dev-server --hot --inline",
-    "test": "mocha --require @babel/register"
+    "test": "webpack-dev-server --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -23,11 +22,11 @@
   },
   "homepage": "https://github.com/mladenilic/element.js",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
-    "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.4",
-    "@babel/register": "^7.4.4",
-    "mocha": "^6.1.4"
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
   }
 }
