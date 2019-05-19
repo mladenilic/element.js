@@ -2,7 +2,7 @@ const element = ({ tagName = '', content = [], attributes = {}, events = {} } = 
   let node = document.createElement(tagName || 'div');
 
   Object.keys(attributes).forEach((key) => node.setAttribute(key, attributes[key]));
-  Object.keys(events).forEach((event) => node.addEventListener(event, events[event]));
+  Object.keys(events).forEach((event) => node.addEventListener(...[event].concat(events[event])));
 
   if (typeof content === 'string') {
     node.innerHTML = content;
