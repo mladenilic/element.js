@@ -1,7 +1,10 @@
 {
-  "name": "element.js",
+  "name": "@mladenilic/element.js",
   "version": "0.0.1",
   "description": "Simple js library for generating large number of html elements",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "webpack",
     "test": "webpack-dev-server --hot --inline"
