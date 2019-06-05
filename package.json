@@ -1,6 +1,6 @@
 {
   "name": "@mladenilic/element.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple js library for generating large number of html elements",
   "publishConfig": {
     "access": "public"
