@@ -9,7 +9,7 @@ Features:
 
 ## When to use it?
 - You have to dynamically generate html elements, but the need does not justify adding large templating engines.
-- You have add additional logic to generated elements in terms of event listeners.
+- You have to add additional logic to generated elements in terms of event listeners.
 
 ## Install
 
