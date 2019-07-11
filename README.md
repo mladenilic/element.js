@@ -1,6 +1,6 @@
 # element.js
 
-_element.js_ is a tiny (**<1kB compressed and minified**) wrapper around `document.createElement` which simplifies creting large amount of [HTMLElements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement).
+_element.js_ is a tiny wrapper around `document.createElement` / `document.createElementNS` which simplifies creating large amount of [HTMLElements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement).
 
 Features:
 1. Logical element nesting
@@ -130,6 +130,25 @@ results in (with _click_ event listener on first span element):
   <span style="color: #0f0;">Hello</span>
   <span style="color: #f00;">World</span>
 </div>
+```
+
+## Namespaces
+element.js supports creating elements and attributes with specific namespaces which allows generating SVGs as well:
+```js
+element({
+  namespace: 'http://www.w3.org/2000/svg',
+  tagName: 'svg',
+  content: [{
+    namespace: 'http://www.w3.org/2000/svg',
+    tagName: 'use',
+    attributes: {
+      'xlink:href': {
+        namespace: 'http://www.w3.org/1999/xlink',
+        value: '#icon-star'
+      }
+    },
+  }]
+});
 ```
 
 ## Tests
