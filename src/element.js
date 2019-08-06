@@ -14,7 +14,7 @@ const setAttribute = (node, name, value) => {
   return node.setAttribute(name, value);
 };
 
-const element = ({ tagName = '', content = [], attributes = {}, events = {}, namespace = '' } = {}) => {
+const render = ({ tagName = '', content = [], attributes = {}, events = {}, ref = {}, namespace = '' } = {}) => {
   let node = createElement(namespace, tagName);
 
   Object.keys(attributes).forEach((key) => setAttribute(node, key, attributes[key]));
@@ -23,10 +23,16 @@ const element = ({ tagName = '', content = [], attributes = {}, events = {}, nam
   if (typeof content === 'string') {
     node.innerHTML = content;
   } else if (Array.isArray(content) && content.length > 0) {
-    content.forEach((child) => node.append(element(child)));
+    content.forEach((child) => node.append(render(child)));
   }
+
+  ref.current = node;
 
   return node;
 };
 
-export default element;
+const ref = () => {
+  return Object.seal({ current: null });
+};
+
+export { render, ref };

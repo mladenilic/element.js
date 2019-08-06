@@ -23,14 +23,21 @@ Using npm:
 $ npm install @mladenilic/element.js
 ```
 
-## Usage
+## Methods:
+
 ```js
-element({
-  tagName: '...',       // type of html element – default: 'div'
-  attributes: {...},    // attributes to assign to element
-  events: {...},        // event handlers to add to element
-  content: [...]        // children to append to element
-})
+import element from '@mladenilic/element.js';
+
+let ref = element.ref();  // Create reference that can be passed
+                          // to `element.render` call
+
+element.render({
+  tagName: '...',         // type of html element – default: 'div'
+  attributes: {...},      // attributes to assign to element
+  events: {...},          // event handlers to add to element
+  content: [...],         // children to append to element
+  ref: ref                // Get a reference to created element
+});
 ```
 
 ### tagName
