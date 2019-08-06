@@ -1,6 +1,16 @@
-import { render, ref } from '../src/element.js';
+import element, { render, ref } from '../src/element.js';
 
-describe('#element()', () => {
+describe('#element', () => {
+  it('should have render method defined', () => {
+    chai.expect(element.render).to.be.instanceof(Function);
+  });
+
+  it('should have ref method defined', () => {
+    chai.expect(element.ref).to.be.instanceof(Function);
+  });
+});
+
+describe('#render()', () => {
   it('should create instance of HTMLElement', () => {
     chai.expect(render()).to.be.instanceof(HTMLElement);
   });

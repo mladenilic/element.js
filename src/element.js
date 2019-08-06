@@ -35,4 +35,5 @@ const ref = () => {
   return Object.seal({ current: null });
 };
 
+export default { render, ref };
 export { render, ref };
