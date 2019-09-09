@@ -1,14 +1,14 @@
 {
   "name": "@mladenilic/element.js",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Simple js library for generating large number of html/svg elements",
   "publishConfig": {
     "access": "public"
   },
-  "main": "src/element.js",
+  "main": "lib/element.js",
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack",
+    "build": "babel src -d lib && webpack",
     "test": "webpack-dev-server --hot --inline"
   },
   "repository": {
@@ -20,6 +20,10 @@
     "create-element",
     "html"
   ],
+  "files": [
+    "/lib",
+    "/dist"
+  ],
   "author": "Mladen Ilic",
   "license": "ISC",
   "bugs": {
@@ -27,6 +31,7 @@
   },
   "homepage": "https://github.com/mladenilic/element.js",
   "devDependencies": {
+    "@babel/cli": "^7.6.0",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",

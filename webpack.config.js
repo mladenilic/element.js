@@ -5,18 +5,16 @@ module.exports = [{
   context: __dirname,
   mode: 'production',
   output: {
-      path: path.resolve(__dirname, './'),
-      filename: 'dist/element.min.js',
-      library: 'element',
-      libraryExport: 'default',
-      libraryTarget: 'umd'
+    path: path.resolve(__dirname, './'),
+    filename: 'dist/element.min.js',
+    library: 'element',
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   },
   module: {
-      rules: [
-          {
-              test: /\.js$/,
-              loader: 'babel-loader'
-          }
-      ]
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader'
+    }]
   }
 }];
