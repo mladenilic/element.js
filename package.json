@@ -21,6 +21,7 @@
     "html"
   ],
   "files": [
+    "/src",
     "/lib",
     "/dist"
   ],
