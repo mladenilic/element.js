@@ -64,6 +64,20 @@ describe('#render()', () => {
     });
   });
 
+  describe('style parameter', () => {
+    it('should assign style properties to created element', () => {
+      let node = render({
+        style: {
+          display: 'none',
+          marginLeft: '200px',
+        }
+      });
+
+      chai.expect(node.style.display).to.be.equal('none');
+      chai.expect(node.style.marginLeft).to.be.equal('200px');
+    });
+  });
+
   describe('attributes parameter', () => {
     it('element should not have any attribute if not provided', () => {
       chai.expect(render().attributes.length).to.be.equal(0);

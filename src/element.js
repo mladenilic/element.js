@@ -7,23 +7,24 @@ const createElement = (namespace, tagName) => {
 };
 
 const setAttribute = (node, name, value) => {
-  if (typeof value === 'object' && !!value && value.namespace) {
+  if (typeof value === 'object' && value.namespace) {
     return node.setAttributeNS(value.namespace, name, value.value);
   }
 
   return node.setAttribute(name, value);
 };
 
-const render = ({ tagName = '', content = [], attributes = {}, events = {}, ref = {}, namespace = '' } = {}) => {
-  let node = createElement(namespace, tagName);
+const render = ({ content = [], ref = {}, ...options } = {}) => {
+  let node = createElement(options.namespace, options.tagName);
 
-  Object.keys(attributes).forEach((key) => setAttribute(node, key, attributes[key]));
-  Object.keys(events).forEach((event) => node.addEventListener(...[event].concat(events[event])));
+  Object.entries(options.style || {}).forEach(([prop, value]) => node.style[prop] = value);
+  Object.entries(options.attributes || {}).forEach(([key, value]) => setAttribute(node, key, value));
+  Object.entries(options.events || {}).forEach(([event, handler]) => node.addEventListener(...[event].concat(handler)));
 
   if (typeof content === 'string') {
     node.innerHTML = content;
   } else if (Array.isArray(content) && content.length > 0) {
-    content.forEach((child) => node.append(render(child)));
+    content.forEach(child => node.append(render(child)));
   }
 
   ref.current = node;
