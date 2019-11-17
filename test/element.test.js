@@ -114,6 +114,16 @@ describe('#render()', () => {
 
       chai.expect(node.dataset.something).to.be.equal('something');
     });
+
+    it('shouldn\'t fail if attribute value is null', () => {
+      let node = render({
+        attributes: {
+          'data-something': null
+        }
+      });
+
+      chai.expect(node.dataset.something).to.be.equal('null');
+    });
   });
 
   describe('events parameter', () => {

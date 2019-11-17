@@ -7,7 +7,7 @@ const createElement = (namespace, tagName) => {
 };
 
 const setAttribute = (node, name, value) => {
-  if (typeof value === 'object' && value.namespace) {
+  if (typeof value === 'object' && !!value && value.namespace) {
     return node.setAttributeNS(value.namespace, name, value.value);
   }
 
