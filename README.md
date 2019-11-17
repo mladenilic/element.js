@@ -34,6 +34,7 @@ let ref = element.ref();  // Create reference that can be passed
 element.render({
   tagName: '...',         // type of html element – default: 'div'
   attributes: {...},      // attributes to assign to element
+  style: {...},           // styles assigned to element
   events: {...},          // event handlers to add to element
   content: [...],         // children to append to element
   ref: ref                // Get a reference to created element
@@ -54,6 +55,20 @@ Each key represents name of the where value is the value of that attribute.
     class: 'class-1 class-2',
     src: '/images/element.jpg',
     'data-target': '#target'
+  },
+  ...
+}
+```
+
+### style
+Use style object to apply styles to the created element
+
+```js
+{
+  ...
+  style: {
+    display: 'block',
+    marginLeft: '20px'
   },
   ...
 }
@@ -116,7 +131,7 @@ element({
   content: [{
     tagName: 'span',
     content: 'Hello',
-    attributes: { style: 'color: #0f0;' },
+    style: { color: '#0f0' },
     events: {
       click: () => {
         console.log('Hello World');
@@ -125,7 +140,7 @@ element({
   }, {
     tagName: 'span',
     content: 'World',
-    attributes: { style: 'color: #f00;' }
+    style: { color: '#f00' }
   }]
 });
 ```
