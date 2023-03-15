@@ -16,5 +16,8 @@ module.exports = [{
       test: /\.js$/,
       loader: 'babel-loader'
     }]
+  },
+  devServer: {
+    static: __dirname,
   }
 }];
